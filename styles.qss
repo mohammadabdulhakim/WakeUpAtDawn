@@ -1,0 +1,168 @@
+/* 🌑 Dark Modern Theme — Professional Look */
+
+QMainWindow {
+    background-color: #0e0e10; /* خلفية داكنة جدًا */
+    color: #f0f0f0;
+}
+
+/* 🧱 Panels (Filters, Canvas, Properties) */
+#frameFilters, #frameCanvas, #frameProperties {
+    background-color: rgba(15, 15, 20, 0.9); /* شبه زجاجية */
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+}
+
+/* 🔹 Filters Panel Custom Look */
+#frameFilters {
+    background-color: rgba(18, 18, 22, 0.95);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 📜 Scroll Area */
+QScrollArea {
+    background: transparent;
+    border: none;
+}
+QScrollArea QWidget {
+    background: transparent;
+}
+QScrollBar:vertical {
+    background: rgba(45, 45, 50, 0.4);
+    width: 8px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical {
+    background: #00bfff;
+    border-radius: 4px;
+}
+
+/* 🔹 Titles */
+#panelTitle {
+    color: #00bfff;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+/* ⚙ Toolbar */
+#mainToolbar {
+    background-color: rgba(26, 26, 30, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px;
+}
+
+#appTitle {
+    color: #00bfff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 🔘 Global Buttons (Save, Load, Undo, etc.) */
+QPushButton {
+    background-color: #1f1f24;
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+QPushButton:hover {
+    background-color: rgba(0, 180, 255, 0.2);
+    border: 1px solid #00bfff;
+    color: #00bfff;
+}
+
+QPushButton:pressed {
+    background-color: rgba(0, 150, 255, 0.3);
+}
+
+/* 🧩 Filter Buttons — more stylish & compact */
+#frameFilters QPushButton {
+    background-color: rgba(50, 50, 58, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    color: #e0e0e0;
+    padding: 8px 12px;
+    margin: 6px 8px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+#frameFilters QPushButton:hover {
+    background-color: rgba(0, 191, 255, 0.15);
+    border-color: #00bfff;
+    color: #00bfff;
+}
+
+#frameFilters QPushButton:pressed {
+    background-color: rgba(0, 150, 255, 0.25);
+    border-color: #00bfff;
+}
+
+/* 🧩 Thumbnail inside Filter Buttons (optional if you use icons) */
+#frameFilters QPushButton::icon {
+    margin-right: 6px;
+}
+
+/* 🎚 Sliders (general) */
+QSlider::groove:horizontal {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
+}
+QSlider::handle:horizontal {
+    background: #00bfff;
+    border: none;
+    width: 14px;
+    margin: -4px 0;
+    border-radius: 7px;
+}
+QSlider::handle:horizontal:hover {
+    background: #33ccff;
+}
+
+/* 🧩 Property Panel Labels and Sliders */
+#frameProperties QLabel {
+    color: #f0f0f0; /* أبيض واضح */
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* 🖼 Drop Zone */
+#dropZone {
+    border: 2px dashed rgba(0, 180, 255, 0.4);
+    border-radius: 16px;
+    color: #cccccc;
+    font-size: 16px;
+    background-color: rgba(20, 20, 25, 0.8);
+}
+
+/* 💬 Status Bar */
+QStatusBar {
+    background: #16161a;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+QStatusBar QLabel {
+    color: #00bfff;
+}
+
+/* 🧾 Toolbar Buttons and Text */
+QToolBar QToolButton {
+    background: transparent;
+    color: #f0f0f0;
+    font-weight: 500;
+    padding: 4px 10px;
+}
+QToolBar QToolButton:hover {
+    background-color: rgba(0, 180, 255, 0.15);
+    color: #00bfff;
+}
+QToolBar QToolButton:pressed {
+    background-color: rgba(0, 150, 255, 0.25);
+}
