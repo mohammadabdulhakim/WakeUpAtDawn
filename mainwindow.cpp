@@ -68,6 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
                {GreyScale::getId(), make_shared<GreyScale>(customImage)},
                {WhiteAndBlack::getId(), make_shared<WhiteAndBlack>(customImage)},
                {Invert::getId(), make_shared<Invert>(customImage)},
+               {Merge::getId(), make_shared<Merge>(customImage)},
                {Flip::getId(), make_shared<Flip>(customImage)},
                {Rotate::getId(), make_shared<Rotate>(customImage)},
                {Brightness::getId(), make_shared<Brightness>(customImage)},
@@ -252,6 +253,21 @@ void MainWindow::applyFilter(const string &filterId, const string &name, bool sk
                     this, tr("Toggle Option"), QString::fromStdString(param.name),
                     QMessageBox::Yes | QMessageBox::No);
                 filter->setParam(param.name, (reply == QMessageBox::Yes) ? 1 : 0);
+            }else if (param.type == "image") {
+                QString fileName = QFileDialog::getOpenFileName(this, QString::fromStdString(param.name), "" , tr("Images (*.png *.jpg *.bmp)"));
+                if (fileName.isEmpty()) return;
+
+                Image overlayImg;
+                overlayImg.loadNewImage(fileName.toStdString());
+                filter->setParam(param.name, overlayImg);
+            }
+            else if (param.type == "color") {
+                QColor color = QColorDialog::getColor(Qt::white, this,
+                                                      QString::fromStdString(param.name));
+                if (!color.isValid()) return;
+
+                QString hex = color.name(QColor::HexRgb); // مثل "#RRGGBB"
+                filter->setParam(param.name, hex.toStdString());
             }
         }
     }

@@ -58,6 +58,9 @@ public:
     virtual void setParam(const std::string &name, bool val) {
         params[name].value = val;
     }
+    void setParam(const std::string& name, const Image& img){
+        // params[name].value = img;
+    }
 
     virtual void setParam(const std::string &name, const std::string &val) {
         params[name].value = val;
@@ -447,11 +450,16 @@ public:
 
     vector<FilterParam> getNeeds() {
         return {
-            {"Merge Type", "choice", "1",1, 2}
+            {"Enter Merge type (1: Stretch to fit, 2: Common):", "int", "1",1, 2},
+            {"Overlay Image", "image", ""}
+
         };
     }
     void setParam(const std::string& name, double value) {
-        if (name == "Merge Type") mergeType = (int)value;
+        if (name == "Enter Merge type (1: Stretch to fit, 2: Common):") mergeType = (int)value;
+    }
+    void setParam(const string& name, const Image& img) {
+        if (name == "Overlay Image") overlay = img;
     }
     void apply() override
     {
@@ -1031,7 +1039,7 @@ public:
     vector<FilterParam> getNeeds() {
         return {
             {"Frame Type (1=Normal, 2=Decorative)", "int","1", 1, 2},
-            {"Frame Color", "color","red", 0, 0},
+            {"Frame Color", "color","", 0, 0},
             {"Thickness", "int","10", 1, 50}
         };
     }
