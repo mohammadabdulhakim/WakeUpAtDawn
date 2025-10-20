@@ -188,6 +188,13 @@ void MainWindow::openImage() {
     }
     currentImage.load(fileName);
     originalImage = customImage;
+
+    double wScaleRatio = (double(imageLabel->size().width())/customImage.width);
+    double hScaleRatio = (double(imageLabel->size().height())/customImage.height);
+    int labelWidth =  wScaleRatio * customImage.width;
+    int labelHeight =  hScaleRatio * customImage.height;
+    imageLabel->setFixedSize(labelWidth, labelHeight);
+
     imageLabel->setPixmap(currentImage.scaled(imageLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     undoStack = std::stack<Image>();
     redoStack = std::stack<Image>();

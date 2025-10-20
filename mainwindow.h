@@ -37,6 +37,7 @@ private:
     Image originalImage;
     QPixmap currentImage;
     QString originalImagePath;
+    void displayScaledImage(const QImage &img);
 
     // ✅ Crop logic
     bool croppingMode = false;
