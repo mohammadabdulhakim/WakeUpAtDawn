@@ -260,6 +260,12 @@ void MainWindow::applyFilter(const string &filterId, const string &name, bool sk
     redoStack = std::stack<Image>();
     filter->apply();
 
+    double wScaleRatio = (double(imageLabel->size().width())/customImage.width);
+    double hScaleRatio = (double(imageLabel->size().height())/customImage.height);
+    int labelWidth =  wScaleRatio * customImage.width;
+    int labelHeight =  hScaleRatio * customImage.height;
+    imageLabel->setFixedSize(labelWidth, labelHeight);
+
     QImage qimg((uchar *)customImage.imageData, customImage.width, customImage.height,
                 customImage.width * 3, QImage::Format_RGB888);
     imageLabel->setPixmap(QPixmap::fromImage(qimg).scaled(
